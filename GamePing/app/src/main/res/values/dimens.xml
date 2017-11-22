@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Main-->
+    <dimen name="main_notice_margin_bottom">10dp</dimen>
+
+    <!--Main.GameItem-->
+    <dimen name="main_item_icon_width">130dp</dimen>
+    <dimen name="main_item_icon_height">70dp</dimen>
+    <dimen name="main_item_title_text_size">14dp</dimen>
+    <dimen name="main_item_margin_bottom">20dp</dimen>
+</resources>

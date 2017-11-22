@@ -1,0 +1,134 @@
+[
+  {
+    "mDefault": true,
+    "mIconRes": 2131099741,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "PUBG"
+  },
+  {
+    "mDefault": true,
+    "mIconRes": 2131099739,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "League of Legend"
+  },
+  {
+    "mDefault": true,
+    "mIconRes": 2131099737,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "DOTA2"
+  },
+  {
+    "mDefault": true,
+    "mIconRes": 2131099738,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "Fornite"
+  },
+  {
+    "mDefault": true,
+    "mIconRes": 2131099740,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "OverWatch"
+  },
+  {
+    "mDefault": true,
+    "mIconRes": 2131099736,
+    "mLargeIconRes": 0,
+    "mServerList": [
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      },
+      {
+        "mHosts": [
+          "google.com",
+          "facebook.com"
+        ],
+        "mTitle": "Asia"
+      }
+    ],
+    "mTitle": "CS:GO"
+  }
+]
