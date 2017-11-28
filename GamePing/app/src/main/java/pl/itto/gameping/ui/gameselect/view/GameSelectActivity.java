@@ -17,6 +17,8 @@ public class GameSelectActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        AppUtils.generateDefaultJson();
+        requestTransparentStatusBar();
+
     }
 
 

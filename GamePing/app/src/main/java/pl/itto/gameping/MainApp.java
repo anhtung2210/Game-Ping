@@ -23,6 +23,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
         getComponent().inject(this);
+//        AppUtils.generateDefaultJson();
 
     }
 

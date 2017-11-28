@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+    <!--ActionBar-->
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size">
+
+        <ImageButton
+            android:id="@+id/action_btn"
+            android:layout_width="@dimen/action_bar_icon_size"
+            android:layout_height="@dimen/action_bar_icon_size"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ripple_effect_transparent"
+            android:tint="@color/main_new_text_color"
+            app:srcCompat="@drawable/ic_back"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/main_cus_title"
+            android:textColor="@color/main_new_text_color"
+            android:textSize="@dimen/main_new_title_text_size"
+            android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/create_server_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_ripple_dark"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/main_cus_done"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/main_new_text_color"
+        android:textSize="@dimen/main_new_content_text_size"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/create_server_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/create_server_btn"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/main_new_content_margin_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_cus_name"
+            android:textColor="@color/main_new_text_color"
+            android:textSize="@dimen/main_new_content_text_size"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/title_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/main_new_content_margin_vertical"
+            android:layout_marginLeft="@dimen/main_new_content_margin_horizontal"
+            android:layout_marginRight="@dimen/main_new_content_margin_horizontal"
+            android:maxLines="3"
+            android:textColor="@color/main_new_text_color"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="@dimen/main_new_content_text_size"/>
+
+        <TextView
+            android:id="@+id/address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_cus_address"
+            android:textColor="@color/main_new_text_color"
+            android:textSize="@dimen/main_new_content_text_size"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/address_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/main_new_content_margin_vertical"
+            android:layout_marginLeft="@dimen/main_new_content_margin_horizontal"
+            android:layout_marginRight="@dimen/main_new_content_margin_horizontal"
+            android:hint="@string/main_cus_address_hint"
+            android:textColor="@color/main_new_text_color"
+            android:textColorHint="@color/colorGrey"
+            android:textSize="@dimen/main_new_content_text_size"/>
+    </LinearLayout>
+</RelativeLayout>

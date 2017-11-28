@@ -1,8 +1,7 @@
 [
   {
     "mDefault": true,
-    "mIconRes": 2131099741,
-    "mLargeIconRes": 0,
+    "mDefaultId": 0,
     "mServerList": [
       {
         "mHosts": [
@@ -23,8 +22,7 @@
   },
   {
     "mDefault": true,
-    "mIconRes": 2131099739,
-    "mLargeIconRes": 0,
+    "mDefaultId": 1,
     "mServerList": [
       {
         "mHosts": [
@@ -45,8 +43,7 @@
   },
   {
     "mDefault": true,
-    "mIconRes": 2131099737,
-    "mLargeIconRes": 0,
+    "mDefaultId": 2,
     "mServerList": [
       {
         "mHosts": [
@@ -67,8 +64,7 @@
   },
   {
     "mDefault": true,
-    "mIconRes": 2131099738,
-    "mLargeIconRes": 0,
+    "mDefaultId": 3,
     "mServerList": [
       {
         "mHosts": [
@@ -89,8 +85,7 @@
   },
   {
     "mDefault": true,
-    "mIconRes": 2131099740,
-    "mLargeIconRes": 0,
+    "mDefaultId": 4,
     "mServerList": [
       {
         "mHosts": [
@@ -111,8 +106,7 @@
   },
   {
     "mDefault": true,
-    "mIconRes": 2131099736,
-    "mLargeIconRes": 0,
+    "mDefaultId": 5,
     "mServerList": [
       {
         "mHosts": [

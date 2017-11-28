@@ -5,8 +5,14 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack80">#CC000000</color>
     <color name="colorBlack10">#25000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#DEa1a3a8</color>
 
     <!--Main-->
     <color name="main_item_text_color">@color/colorBlack80</color>
     <color name="main_notice_icon_color">@color/colorPrimary</color>
+    <color name="main_fab_bgr_color">@color/colorPrimary</color>
+
+    <!--Main.NewGame-->
+    <color name="main_new_text_color">@color/colorPrimary</color>
 </resources>

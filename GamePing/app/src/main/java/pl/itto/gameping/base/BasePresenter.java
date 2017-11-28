@@ -11,8 +11,8 @@ import pl.itto.gameping.data.IDataManager;
 public class BasePresenter<V extends IBaseView> implements IBasePresenter<V> {
     private static final String TAG = "PL_itto.BasePresenter";
 
-    private final IDataManager mDataManager;
-    private V mView;
+    public final IDataManager mDataManager;
+    public V mView;
 
     @Inject
     public BasePresenter(IDataManager dataManager) {
