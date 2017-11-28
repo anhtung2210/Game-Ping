@@ -25,4 +25,9 @@
     <dimen name="main_new_content_text_size">15dp</dimen>
     <dimen name="main_new_content_margin_horizontal">5dp</dimen>
     <dimen name="main_new_content_margin_vertical">20dp</dimen>
+
+    <!--Server Ping-->
+    <dimen name="ping_detail_height">200dp</dimen>
+    <dimen name="ping_detail_margin_top">40dp</dimen>
+    <dimen name="ping_clear_height">30dp</dimen>
 </resources>

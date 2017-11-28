@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <pl.itto.squarelayout.SquareLayout
+        android:id="@+id/chart_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ratio_x="6"
+        app:ratio_y="4">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </pl.itto.squarelayout.SquareLayout>
+
+    <EditText
+        android:id="@+id/ping_detail_edit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ping_detail_height"
+        android:editable="false"
+        android:layout_below="@id/chart_layout"
+        android:layout_marginTop="@dimen/ping_detail_margin_top"/>
+
+    <Button
+        android:id="@+id/ping_clear_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/ping_clear_height"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/ping_detail_edit"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btn_ripple_dark"
+        android:text="@string/ping_clear"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"/>
+</RelativeLayout>

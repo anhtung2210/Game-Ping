@@ -12,7 +12,7 @@ public class ServerPingActivity extends BaseActivity {
     @NonNull
     @Override
     public Fragment getFragment() {
-        return null;
+        return new ServerPingFragment();
     }
 
     @Override

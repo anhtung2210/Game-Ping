@@ -15,4 +15,8 @@
     <string name="main_cus_done">Done</string>
     <string name="main_cus_address_miss">Address can not be empty!</string>
     <string name="main_cus_info_miss">Data is error!</string>
+
+
+    <!--ServerPing-->
+    <string name="ping_clear">Clear</string>
 </resources>

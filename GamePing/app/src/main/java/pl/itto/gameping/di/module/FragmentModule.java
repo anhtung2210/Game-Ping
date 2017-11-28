@@ -13,6 +13,8 @@ import pl.itto.gameping.ui.areaselect.presenter.AreaPingPresenter;
 import pl.itto.gameping.ui.gameselect.IGameSelectContract.IGameSelectPresenter;
 import pl.itto.gameping.ui.gameselect.IGameSelectContract.IGameSelectVIew;
 import pl.itto.gameping.ui.gameselect.presenter.GameSelectPresenter;
+import pl.itto.gameping.ui.serverping.IServerPingContract;
+import pl.itto.gameping.ui.serverping.presenter.ServerPingPresenter;
 
 /**
  * Created by PL_itto on 11/22/2017.
@@ -43,6 +45,11 @@ public class FragmentModule {
 
     @Provides
     IAreaPingContract.IAreaPingPresenter<IAreaPingView> provideAreaPingPresenter(AreaPingPresenter<IAreaPingView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IServerPingContract.IServerPingPresenter<IServerPingContract.IServerPingView> provideServerPingPresenter(ServerPingPresenter<IServerPingContract.IServerPingView> presenter) {
         return presenter;
     }
 }
