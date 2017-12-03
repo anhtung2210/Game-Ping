@@ -3,26 +3,56 @@
     <color name="colorPrimary">#4C6A92</color>
     <color name="colorPrimaryDark">#466389</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorBlack">#000000</color>
     <color name="colorBlack80">#CC000000</color>
     <color name="colorBlack10">#25000000</color>
-    <color name="colorWhite">#FFFFFF</color>
-    <color name="colorGrey">#333333</color>
 
     <!--Main-->
-    <color name="main_notice_icon_color">@color/colorWhite</color>
-    <color name="main_fab_bgr_color">@color/colorPrimary</color>
+    <color name="main_item_text_color">@color/colorBlack80</color>
+    <color name="main_notice_icon_color">@color/colorPrimary</color>
 
-    <color name="main_item_bgr_color">@color/colorGrey</color>
-    <color name="main_item_inner_text_color">@color/colorWhite</color>
-    <color name="main_item_text_color">@color/colorWhite</color>
+    <color name="primary_black">#333333</color>
+    <color name="primary_white">#ffffff</color>
 
-    <!--Main.NewGame-->
-    <color name="main_new_text_color">@color/colorPrimary</color>
+    <color name="normal_start">#DF5A20</color>
+    <color name="normal_end">#904321</color>
+    <color name="normal_border">#EDB9AF</color>
+    <color name="normal_text">#000000</color>
+    <color name="normal_start_multi">#CB5500</color>
+    <color name="normal_end_multi">#F88800</color>
+
+    <color name="pressed_start">#822300</color>
+    <color name="pressed_end">#D7530F</color>
+    <color name="pressed_border">#EDBAB0</color>
+    <color name="pressed_text">#FFFFFF</color>
+    <color name="pressed_start_multi">#F88800</color>
+    <color name="pressed_end_multi">#CB5500</color>
+
+    <color name="focused_start">#944224</color>
+    <color name="focused_end">#D8703B</color>
+    <color name="focused_border">#862501</color>
+    <color name="focused_text">#000000</color>
+    <color name="focused_start_multi">#F88800</color>
+    <color name="focused_end_multi">#CB5500</color>
+    <color name="focused_start_multi_1">#FDD401</color>
+    <color name="focused_end_multi_1">#E68E15</color>
+
+    <color name="disabled_start">#EAB6A6</color>
+    <color name="disabled_end">#C9AB9D</color>
+    <color name="disabled_border">#EBC7BE</color>
+    <color name="disabled_text">#EBC7BE</color>
+    <color name="disabled_start_multi">#EFC49A</color>
+    <color name="disabled_end_multi">#E0B18E</color>
+
+    <color name="disabled_and_focused_start">#C29B8C</color>
+    <color name="disabled_and_focused_end">#E2AE94</color>
+    <color name="disabled_and_focused_border">#B27E6B</color>
+    <color name="disabled_and_focused_text">#B27E6B</color>
+    <color name="disabled_and_focused_start_multi">#F2E08F</color>
+    <color name="disabled_and_focused_end_multi">#EAC896</color>
 
 
-    <!--ServerPing-->
-    <color name="ping_detail_text_color">@color/colorPrimary</color>
-    <color name="ping_bgr_color">#333333</color>
-    <color name="ping_detail_text_color1">@color/colorWhite</color>
+    <color name="background">#65828e</color>
+    <color name="main_color">#ff9a00</color>
+    <color name="secondary_color">#BDBDBD</color>
+
 </resources>

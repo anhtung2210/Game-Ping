@@ -2,23 +2,5 @@
     <string name="app_name">GamePing</string>
 
     <!--Main-->
-    <string name="main_notice">CHOOSE YOUR GAME</string>
-    <string name="main_about">About</string>
-    <!--Main.Item-->
-    <string name="main_item_edit">Edit</string>
-
-    <!--Main.Custom-->
-    <string name="main_cus_title">New Server</string>
-    <string name="main_cus_name">Server Title:</string>
-    <string name="main_cus_address">Server Address:</string>
-    <string name="main_cus_address_hint">Ip address / Website</string>
-    <string name="main_cus_done">Done</string>
-    <string name="main_cus_address_miss">Address can not be empty!</string>
-    <string name="main_cus_info_miss">Data is error!</string>
-
-
-    <!--ServerPing-->
-    <string name="ping_clear">Clear</string>
-    <string name="ping_detail_text">Ping Detail:</string>
-    <string name="ping_legend">Ping (ms)</string>
+    <string name="main_notice">Select a game to ping or create your own server ping</string>
 </resources>
