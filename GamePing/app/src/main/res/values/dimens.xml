@@ -16,6 +16,7 @@
     <dimen name="main_item_icon_width">130dp</dimen>
     <dimen name="main_item_icon_height">70dp</dimen>
     <dimen name="main_item_title_text_size">14dp</dimen>
+    <dimen name="main_item_inner_text_size">15dp</dimen>
     <dimen name="main_item_margin_bottom">20dp</dimen>
     <dimen name="main_item_round_radius">15dp</dimen>
     <dimen name="main_item_option_size">30dp</dimen>
@@ -28,6 +29,9 @@
 
     <!--Server Ping-->
     <dimen name="ping_detail_height">200dp</dimen>
-    <dimen name="ping_detail_margin_top">40dp</dimen>
+    <dimen name="ping_detail_margin_top">20dp</dimen>
     <dimen name="ping_clear_height">30dp</dimen>
+    <dimen name="ping_info_text_size">10dp</dimen>
+    <dimen name="ping_chart_margin_top">20dp</dimen>
+    <dimen name="ping_detail_text_size">13dp</dimen>
 </resources>

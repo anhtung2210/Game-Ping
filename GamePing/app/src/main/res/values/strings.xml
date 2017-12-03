@@ -19,4 +19,6 @@
 
     <!--ServerPing-->
     <string name="ping_clear">Clear</string>
+    <string name="ping_detail_text">Ping Detail:</string>
+    <string name="ping_legend">Ping (ms)</string>
 </resources>

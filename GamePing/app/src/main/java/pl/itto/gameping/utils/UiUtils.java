@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.StringRes;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -20,15 +21,14 @@ import pl.itto.gameping.R;
  */
 
 public class UiUtils {
-    public static void loadImageRes(Context context, @StringRes int resId, final ImageView view, boolean rounded) {
+    public static void loadImageRes(Context context, @StringRes int resId, final View view, boolean rounded) {
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(R.mipmap.ic_launcher);
         requestOptions.centerCrop();
         if (rounded) {
-            requestOptions.apply(RequestOptions.bitmapTransform(new RoundedCorners(context.getResources().getDimensionPixelOffset(R.dimen.main_item_round_radius))));
+            requestOptions.apply(RequestOptions.bitmapTransform(new RoundedCorners(context.getResources().getDimensionPixelSize(R.dimen.main_item_round_radius))));
         }
-
 //        Glide.with(context).asBitmap().load(resId).apply(requestOptions).into(view);
         Glide.with(context).asBitmap().load(resId).apply(requestOptions).into(new SimpleTarget<Bitmap>() {
             @Override

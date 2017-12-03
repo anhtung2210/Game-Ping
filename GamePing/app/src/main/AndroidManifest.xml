@@ -23,7 +23,10 @@
         </activity>
         <activity android:name=".ui.areaselect.view.AreaPingActivity">
         </activity>
-        <activity android:name=".ui.serverping.view.ServerPingActivity">
+        <activity
+            android:name=".ui.serverping.view.ServerPingActivity"
+            android:theme="@style/AppTheme.StatusBar"
+            >
         </activity>
     </application>
 

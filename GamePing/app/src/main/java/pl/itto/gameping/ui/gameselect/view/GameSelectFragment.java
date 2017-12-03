@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -50,6 +51,8 @@ import static pl.itto.gameping.utils.AppConstants.AreaSelect.EXTRA_GAME_ITEM;
 
 public class GameSelectFragment extends BaseFragment implements IGameSelectContract.IGameSelectVIew {
     private static final String TAG = "PL_itto." + GameSelectFragment.class.getSimpleName();
+    @BindView(R.id.main_root_layout)
+    CoordinatorLayout mRootLayout;
     @BindView(R.id.main_fab_new)
     FloatingActionButton mFabNew;
     @BindView(R.id.game_title)
@@ -82,6 +85,7 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.i(TAG, "onViewCreated: ");
+        UiUtils.loadImageRes(getContext(), R.drawable.img_main_bgr, mRootLayout, false);
         mPresenter.loadGame(getContext());
     }
 
@@ -156,7 +160,7 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
     @Override
     public void openOption() {
         PopupMenu popupMenu = new PopupMenu(getContext(), mOptionBtn);
-        popupMenu.inflate(R.menu.game_item_option);
+        popupMenu.inflate(R.menu.game_select_option);
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -253,6 +257,8 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
             TextView mTitle;
             @BindView(R.id.option)
             ImageButton mOption;
+            @BindView(R.id.custom_inner_title)
+            TextView mInnerTitle;
             @BindView(R.id.game_item_root)
             RelativeLayout mParentLayout;
 
@@ -270,6 +276,7 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
             public void bindItem(GameItem item) {
                 if (item.isDefault()) {
                     mOption.setVisibility(View.GONE);
+                    mInnerTitle.setVisibility(View.GONE);
                     int id = item.getDefaultId();
                     if (id < AppConstants.GameSelect.DEFAULT_GAME_COUNT) {
 //                    Glide.with(getContext()).load(AppConstants.GameSelect.DEFAULT_GAME_THUMBS[id]).into(mIcon);
@@ -277,9 +284,13 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
                     }
                 } else {
                     mOption.setVisibility(View.VISIBLE);
-                    UiUtils.loadImageRes(getContext(), R.mipmap.ic_launcher, mIcon, true);
+                    mInnerTitle.setVisibility(View.VISIBLE);
+                    mInnerTitle.setText(item.getTitle());
+                    mIcon.setBackgroundResource(R.drawable.default_game_shape);
+//                    UiUtils.loadImageRes(getContext(), R.mipmap.ic_launcher, mIcon, true);
                 }
                 mTitle.setText(item.getTitle());
+
             }
 
             @OnClick(R.id.option)

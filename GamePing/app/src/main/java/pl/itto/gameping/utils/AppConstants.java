@@ -31,4 +31,5 @@ public class AppConstants {
         public static final String EXTRA_TITLE = "extra_title";
         public static final String EXTRA_ADDRESS = "extra_address";
     }
+
 }

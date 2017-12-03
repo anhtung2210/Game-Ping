@@ -9,7 +9,7 @@ import pl.itto.gameping.base.IBaseView;
 
 public interface IServerPingContract {
     interface IServerPingView extends IBaseView {
-
+        void addPingValue(String value);
     }
 
     interface IServerPingPresenter<V extends IServerPingView> extends IBasePresenter<V> {

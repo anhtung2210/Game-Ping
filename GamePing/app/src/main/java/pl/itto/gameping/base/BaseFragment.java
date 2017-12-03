@@ -65,4 +65,8 @@ public class BaseFragment extends Fragment implements IBaseView {
         return mComponent;
     }
 
+    public BaseActivity getParentActivity() {
+        return (BaseActivity) getActivity();
+    }
+
 }

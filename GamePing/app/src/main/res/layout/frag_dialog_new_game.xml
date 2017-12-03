@@ -92,7 +92,7 @@
             android:layout_marginRight="@dimen/main_new_content_margin_horizontal"
             android:hint="@string/main_cus_address_hint"
             android:textColor="@color/main_new_text_color"
-            android:textColorHint="@color/colorGrey"
+            android:textColorHint="@color/colorBlack10"
             android:textSize="@dimen/main_new_content_text_size"/>
     </LinearLayout>
 </RelativeLayout>

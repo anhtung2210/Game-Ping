@@ -3,12 +3,21 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/ping_bgr_color"
     android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_size"
+        android:theme="@style/AppTheme.Toolbar"/>
 
     <pl.itto.squarelayout.SquareLayout
         android:id="@+id/chart_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="@dimen/ping_chart_margin_top"
         app:ratio_x="6"
         app:ratio_y="4">
 
@@ -18,13 +27,27 @@
             android:layout_height="match_parent"/>
     </pl.itto.squarelayout.SquareLayout>
 
+    <TextView
+        android:id="@+id/ping_detail_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/chart_layout"
+        android:layout_marginTop="@dimen/ping_detail_margin_top"
+        android:text="@string/ping_detail_text"
+        android:textColor="@color/ping_detail_text_color"
+        android:textSize="@dimen/ping_detail_text_size"
+        android:textStyle="bold"/>
+
     <EditText
         android:id="@+id/ping_detail_edit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ping_detail_height"
+        android:layout_below="@id/ping_detail_text"
         android:editable="false"
-        android:layout_below="@id/chart_layout"
-        android:layout_marginTop="@dimen/ping_detail_margin_top"/>
+        android:ellipsize="end"
+        android:gravity="top|left"
+        android:textColor="@color/ping_detail_text_color1"
+        android:textSize="@dimen/ping_info_text_size"/>
 
     <Button
         android:id="@+id/ping_clear_btn"

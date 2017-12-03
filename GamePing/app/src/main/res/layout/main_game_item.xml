@@ -14,6 +14,8 @@
         android:id="@+id/icon_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/game_item_stroke"
+        android:padding="4dp"
         app:ratio_x="1"
         app:ratio_y="1">
 
@@ -35,6 +37,18 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/game_item_option"
             app:srcCompat="@drawable/ic_option_horizontal"/>
+
+        <TextView
+            android:id="@+id/custom_inner_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/main_item_inner_text_color"
+            android:textSize="@dimen/main_item_inner_text_size"
+            android:visibility="gone"/>
     </pl.itto.squarelayout.SquareLayout>
 
 

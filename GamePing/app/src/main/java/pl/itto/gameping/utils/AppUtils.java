@@ -19,6 +19,7 @@ import java.util.List;
 import pl.itto.gameping.data.model.GameItem;
 import pl.itto.gameping.data.model.ServerItem;
 import pl.itto.gameping.di.ApplicationContext;
+
 /**
  * Created by PL_itto on 11/21/2017.
  */
@@ -103,5 +104,17 @@ public class AppUtils {
             Log.e(TAG, "saveGameLe.printStackTrace();istFailed: \n" + e.toString());
             return false;
         }
+    }
+
+    public static Float getPingValue(String ping) {
+        if (ping == null) return null;
+        if (!ping.contains("time=")) return null;
+        ping = ping.substring(ping.indexOf("time="));
+        String[] result = ping.split(" ");
+        if (result != null && result.length != 0) {
+            String res = result[0].substring(result[0].indexOf("time=") + 5);
+            return Float.parseFloat(res);
+        }
+        return null;
     }
 }
