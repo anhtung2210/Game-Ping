@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MainApp"
@@ -14,16 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.gameselect.view.GameSelectActivity">
-
-        </activity>
-        <activity android:name=".ui.areaselect.view.AreaPingActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
+        </activity>
+        <activity
+            android:name=".ui.areaselect.view.AreaPingActivity"
+            android:theme="@style/AppTheme.StatusBar"
+            >
+        </activity>
+        <activity
+            android:name=".ui.serverping.view.ServerPingActivity"
+            android:theme="@style/AppTheme.StatusBar"
+            >
         </activity>
     </application>
 
