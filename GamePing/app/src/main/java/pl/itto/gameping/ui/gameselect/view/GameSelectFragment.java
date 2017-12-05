@@ -1,5 +1,6 @@
 package pl.itto.gameping.ui.gameselect.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -81,6 +82,7 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
         return view;
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -322,7 +324,7 @@ public class GameSelectFragment extends BaseFragment implements IGameSelectContr
                 if (item != null) {
                     Log.d(TAG, item.toString());
                     if (item.isDefault()) {
-//                        openAreaSelect(item);
+                        openAreaSelect(item);
                     } else {
                         String title = item.getTitle();
                         String address = item.getServerList().get(0).getHosts()[0];

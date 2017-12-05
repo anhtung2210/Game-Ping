@@ -1,81 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/primary_black"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primary_black">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="@dimen/min_height_toolbar"
+    <FrameLayout
+        android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        >
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/area_index_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/area_index_image_height"
+            android:scaleType="fitXY"
+            android:src="@drawable/pubg"/>
 
-    </android.support.v7.widget.Toolbar>
-
-
-    <ImageView
-        android:layout_below="@+id/toolbar"
-        android:id="@+id/area_index_imageview"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/area_index_image_height"
-        android:src="@drawable/pubg"
-        android:scaleType="fitXY"/>
-
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_size"
+            android:background="@android:color/transparent"
+            android:theme="@style/AppTheme.Toolbar">
+        </android.support.v7.widget.Toolbar>
+    </FrameLayout>
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/server_recucycler"
-        android:layout_below="@id/area_index_imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
     </android.support.v7.widget.RecyclerView>
 
 
-
     <!--<com.andexert.library.RippleView-->
-        <!--android:id="@+id/more"-->
-        <!--android:layout_width="120dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--rv_centered="true">-->
+    <!--android:id="@+id/more"-->
+    <!--android:layout_width="120dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_gravity="bottom|end"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--rv_centered="true">-->
 
-        <!--<com.robertlevonyan.views.customfloatingactionbutton.CustomFloatingActionButton-->
-            <!--android:id="@+id/custom_fab"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="bottom|end"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--app:fabType="roundedSquare"-->
-            <!--app:fabText="       Ping       "-->
-            <!--app:fabSizes="normal"-->
-            <!--app:fabTextAllCaps="true"-->
+    <!--<com.robertlevonyan.views.customfloatingactionbutton.CustomFloatingActionButton-->
+    <!--android:id="@+id/custom_fab"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom|end"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--app:fabType="roundedSquare"-->
+    <!--app:fabText="       Ping       "-->
+    <!--app:fabSizes="normal"-->
+    <!--app:fabTextAllCaps="true"-->
 
-            <!--/>-->
+    <!--/>-->
     <!--</com.andexert.library.RippleView>-->
 
 
     <Button
         android:id="@+id/button_ping"
+        style="@style/SingleGradient"
         android:layout_width="180dp"
         android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
         android:text="Ping Game"
-        style="@style/SingleGradient"
         />
-
-
 
 
 </RelativeLayout>

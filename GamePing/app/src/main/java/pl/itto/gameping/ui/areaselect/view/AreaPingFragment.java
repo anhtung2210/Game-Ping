@@ -4,23 +4,18 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.robertlevonyan.views.customfloatingactionbutton.CustomFloatingActionButton;
-import com.robertlevonyan.views.customfloatingactionbutton.OnFabClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +25,6 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
 import pl.itto.gameping.R;
 import pl.itto.gameping.base.BaseFragment;
 import pl.itto.gameping.data.model.GameItem;
@@ -38,14 +32,13 @@ import pl.itto.gameping.data.model.ServerItem;
 import pl.itto.gameping.ui.areaselect.IAreaPingContract.IAreaPingPresenter;
 import pl.itto.gameping.ui.areaselect.IAreaPingContract.IAreaPingView;
 import pl.itto.gameping.utils.AppConstants;
-import pl.itto.gameping.utils.AppUtils;
 
 /**
  * Created by PL_itto on 11/22/2017.
  */
 
 public class AreaPingFragment extends BaseFragment implements IAreaPingView {
-    private static final String TAG = "PL_itto.AreaPingFragment";
+    private static final String TAG = "PL_itto." + AreaPingFragment.class.getSimpleName();
 
     private static final Integer GAME_PUBG = 1;
     private static final Integer GAME_DOTA2 = 2;
@@ -75,7 +68,7 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
     @BindView(R.id.button_ping)
     Button pingBtn;
     private ServerAdapter mServerAdapter;
-
+    private GameItem mGameItem;
     final List<ServerItem> mServerItemList = new ArrayList<>();
     public Handler mHandler;
 
@@ -94,10 +87,19 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentComponent().inject(this);
-
+        setHasOptionsMenu(true);
+        mGameItem = (GameItem) getArguments().getSerializable(AppConstants.AreaSelect.EXTRA_GAME_ITEM);
         mPresenter.onAttach(this);
+    }
 
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getParentActivity().finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Nullable
@@ -105,7 +107,6 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag_area_ping, container, false);
         setUnBinder(ButterKnife.bind(this, view));
-
         setUp();
 
         mHandler = new Handler();
@@ -121,12 +122,7 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
 
     public void setUp() {
 
-        mToolbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "Button backpress");
-            }
-        });
+        setUpActionBar();
 
 
         ServerItem item = new ServerItem();
@@ -185,6 +181,17 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
 
     }
 
+    private void setUpActionBar() {
+        if(mGameItem!=null){
+            mToolbar.setTitle(mGameItem.getTitle());
+        }else{
+            Log.e(TAG, "data error" );
+        }
+        getParentActivity().setSupportActionBar(mToolbar);
+        getParentActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getParentActivity().getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
 
     @Override
     synchronized public void updatePingItem(final int i, final String value) {
@@ -202,7 +209,7 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
     }
 
     @Override
-    synchronized public void updatePacketLossItem(final int i,final String value) {
+    synchronized public void updatePacketLossItem(final int i, final String value) {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -248,8 +255,8 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
         }
 
         @Override
-        public int getItemViewType(int position){
-            if (position == 0 ) return TYPE_HEADER;
+        public int getItemViewType(int position) {
+            if (position == 0) return TYPE_HEADER;
             else if (position >= 1 && position <= mList.size() + 1) return TYPE_AREA;
             else if (position > mList.size() + 1) return TYPE_FOOTER;
             else return Integer.parseInt(null);
@@ -259,28 +266,28 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
         @Override
         public ServerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            Log.d(TAG,"onCreateViewHolder " + viewType );
+            Log.d(TAG, "onCreateViewHolder " + viewType);
 
-            if (viewType == TYPE_AREA){
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.ping_server_item, parent, false);
-            return new ServerAdapter.ViewHolder(view,viewType);
-            }else if (viewType == TYPE_HEADER){
+            if (viewType == TYPE_AREA) {
+                View view = LayoutInflater.from(getContext()).inflate(R.layout.ping_server_item, parent, false);
+                return new ServerAdapter.ViewHolder(view, viewType);
+            } else if (viewType == TYPE_HEADER) {
 
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.ping_header_item, parent, false);
-                return new ServerAdapter.ViewHolder(view,viewType);
+                return new ServerAdapter.ViewHolder(view, viewType);
 
-            }else {
+            } else {
                 View view = LayoutInflater.from(getContext()).inflate(R.layout.ping_footer_item, parent, false);
-                return new ServerAdapter.ViewHolder(view,viewType);
+                return new ServerAdapter.ViewHolder(view, viewType);
             }
         }
 
         @Override
         public void onBindViewHolder(ServerAdapter.ViewHolder holder, int position) {
 
-            if(getItemViewType(position) == TYPE_AREA)
-            holder.bindItem(position);
-            else if(getItemViewType(position) == TYPE_HEADER) {
+            if (getItemViewType(position) == TYPE_AREA)
+                holder.bindItem(position);
+            else if (getItemViewType(position) == TYPE_HEADER) {
                 holder.bindHeader(position);
 
 
@@ -291,9 +298,6 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
         public int getItemCount() {
             return mList.size() + 1;
         }
-
-
-
 
 
         class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -307,16 +311,12 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
             TextView tv_loss;
 
 
-
-
-
-            public ViewHolder(View itemView,int viewType ) {
+            public ViewHolder(View itemView, int viewType) {
                 super(itemView);
                 if (viewType == TYPE_AREA)
-                ButterKnife.bind(this, itemView);
-                else if (viewType == TYPE_HEADER){
+                    ButterKnife.bind(this, itemView);
+                else if (viewType == TYPE_HEADER) {
                     checkHeader = (CheckBox) itemView.findViewById(R.id.checkBoxHeader);
-
 
 
                 }
@@ -326,7 +326,7 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
             void bindItem(int pos) {
                 Log.i(TAG, "bindItem: " + pos + " " + getItemViewType());
                 if (getItemViewType() == TYPE_AREA)
-                pos-= 1;
+                    pos -= 1;
 
 
                 ServerItem item = mServerItemList.get(pos);
@@ -346,12 +346,12 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
                 tv_loss.setText(item.getmPacketLoss());
             }
 
-            void bindHeader(int pos){
+            void bindHeader(int pos) {
 //                checkHeader.setText("Select all");
 
-                if (checkHeader.isChecked() == true){
+                if (checkHeader.isChecked() == true) {
                     checkHeader.setText("Uncheck all");
-                }else {
+                } else {
                     checkHeader.setText("Select all");
                 }
 
@@ -361,22 +361,21 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
                     public void onClick(View view) {
 
 
-                        if (checkHeader.isChecked()== false){
+                        if (checkHeader.isChecked() == false) {
                             //checkHeader.setText("Uncheck all");
-                            Log.d("tung.lt", "Click Header check" );
-                            for (int i = 0; i < mServerItemList.size(); i++){
+                            Log.d("tung.lt", "Click Header check");
+                            for (int i = 0; i < mServerItemList.size(); i++) {
                                 mServerItemList.get(i).setChecked(false);
                                 notifyDataSetChanged();
                             }
-                        }else {
-                           // checkHeader.setText("Select all");
-                            Log.d("tung.lt", "Click Header uncheck" );
-                            for (int i = 0; i < mServerItemList.size(); i++){
+                        } else {
+                            // checkHeader.setText("Select all");
+                            Log.d("tung.lt", "Click Header uncheck");
+                            for (int i = 0; i < mServerItemList.size(); i++) {
                                 mServerItemList.get(i).setChecked(true);
                                 notifyDataSetChanged();
                             }
                         }
-
 
 
                     }
@@ -391,12 +390,12 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
 
             @OnClick(R.id.checkBox)
             void clickCheckbox() {
-                if (mServerItemList.get(getAdapterPosition()- 1).getChecked() == false) {
+                if (mServerItemList.get(getAdapterPosition() - 1).getChecked() == false) {
                     mList.get(getAdapterPosition() - 1).setChecked(true);
-                    mServerItemList.get(getAdapterPosition()-1).setChecked(true);
+                    mServerItemList.get(getAdapterPosition() - 1).setChecked(true);
                 } else {
-                    mServerItemList.get(getAdapterPosition()-1).setChecked(false);
-                    mList.get(getAdapterPosition()-1).setChecked(false);
+                    mServerItemList.get(getAdapterPosition() - 1).setChecked(false);
+                    mList.get(getAdapterPosition() - 1).setChecked(false);
                 }
             }
 //
@@ -407,8 +406,6 @@ public class AreaPingFragment extends BaseFragment implements IAreaPingView {
 //                Log.d("tung.lt", "Click Header");
 //
 //            }
-
-
 
 
         }

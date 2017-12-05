@@ -1,27 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/game_item_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/main_item_margin_bottom"
+    android:clickable="true"
+    android:elevation="5dp"
+    android:focusable="true"
     android:gravity="center">
 
-    <ImageButton
-        android:id="@+id/icon"
-        android:layout_width="@dimen/main_item_icon_width"
-        android:layout_height="@dimen/main_item_icon_height"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/btn_ripple_dark"
-        android:clickable="true"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
+    <pl.itto.squarelayout.SquareLayout
+        android:id="@+id/icon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/game_item_stroke"
+        android:padding="4dp"
+        app:ratio_x="1"
+        app:ratio_y="1">
+
+        <ImageButton
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/ic_launcher"
+            android:clickable="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ripple_effect_transparent_rect"/>
+
+        <ImageButton
+            android:id="@+id/option"
+            android:layout_width="@dimen/main_item_option_size"
+            android:layout_height="@dimen/main_item_option_size"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/game_item_option"
+            app:srcCompat="@drawable/ic_option_horizontal"/>
+
+        <TextView
+            android:id="@+id/custom_inner_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="@color/main_item_inner_text_color"
+            android:textSize="@dimen/main_item_inner_text_size"
+            android:visibility="gone"/>
+    </pl.itto.squarelayout.SquareLayout>
+
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/icon"
+        android:layout_below="@id/icon_layout"
         android:layout_centerHorizontal="true"
+        android:clickable="false"
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="2"
